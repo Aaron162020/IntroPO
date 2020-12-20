@@ -1,0 +1,22 @@
+#Objetos
+
+#Clase circulo
+
+class circulo:
+    def _init_(self,radio):
+        self.radio=radio
+
+    def calcularArea(self):
+        return math.pi*self.radio**2
+    def calcularPerimetro(self):
+        return 2*math.pi*self.radio
+
+class rectangulo:
+    def _init_(self,base,altura):
+        self.base=base
+        sel.altura=altura
+    def calcularArea(self):
+        return self.base*self.altura
+    def calcularPerimetro(self):
+        return 2*(self.base+self.altura)
+#--------------------------------- 
