@@ -1,0 +1,78 @@
+#Facturador
+
+#ATRIBUTOS
+    #Numero de Factura 
+    #Fecha 
+    #Cliente
+    #Total Facturado ## ==[]
+    #Total impuesto
+
+#Comportamientos
+    #crear factura(numero,fecha,cliente)
+    #verNumFactura()
+    #agregar Item(Nombre producto,precioUnitario,cantidad)
+    #Ver Total
+    #Cerrar Factura
+
+class facturador:
+    def _init_(self,numFacturado,fecha,cliente,totalImpuesto):
+        self.numfacturado=numFacturado
+        self.cliente=cliente
+        self.fecha=fecha
+        self.Impuesto=totalImpuesto ## 0.13
+        self.totalfacturado=[]
+
+    def crear_factura(self): #NumeroFactura, Fecha,Cliente
+        if self.totalfacturado!=[]:
+            print(' Numero de Factura:',self.numfacturado,'\n','Fecha:',self.fecha,'\n','Cliente:',self.cliente,'\n')
+            for x in self.totalfacturado:
+                print('Producto:',x[0],'\t','Precio:',x[1],'\t','Cantidad:',x[2],'\n')
+        else:
+            print('No se puede facturar debido a que no hay productos registrados')
+    def verNumeroFactura(self):
+        print(self.numfacturado)
+
+    def agregar_Item(self,producto,precioU,cantidad):
+        if isinstance(precioU,int) and isinstance(cantidad,int) and isinstance(producto,str) and cantidad>0 and precioU>0:
+            self.totalfacturado+=[[producto,precioU,cantidad]]
+        else:
+            print('No se pueden agregar productos con precios o cantidades negativas. Además, su cantidad y precio deben de digitarse de forma numerica')
+
+    def verTotal(self):
+        if self.facturado!=[]:
+            res=0
+            for x in self.totalfacturado:
+                res+=(x[1]*x[2])
+            print('El total sin impuestos es de:',res)
+
+        else:
+            print('No se puede ver Total debido a que no hay productos registrados')
+
+    def verTotal_Impuestos(self):
+        if self.facturado!=[]:
+            res=0
+            for x in self.totalfacturado:
+                res+=(x[1]*x[2])
+            impuestos=res*self.Impuestos
+            total_con_impuestos=res+impuestos
+            print('El total sin impuestos es de:',tota_con_impuestos)
+
+        else:
+            print('No se puede ver Total debido a que no hay productos registrados')
+
+    def cerrar_factura(self):
+        if self.facturado!=[]:
+            res=0
+            for x in self.totalfacturado:
+                res+=(x[1]*x[2])
+            impuestos=res*self.Impuestos
+            total_con_impuestos=res+impuestos
+            print('EL total a pagar es de:',tota_con_impuestos)
+
+        else:
+            print('No se puede ver Total debido a que no hay productos registrados')
+
+            
+            
+        
+
