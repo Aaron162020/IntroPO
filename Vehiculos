@@ -1,0 +1,83 @@
+
+class vehiculos():
+    def _init_(self):
+        self.Totalvehiculos=[]
+    def incluir_vehiculo(self,placa,marca,modelo,año,precio):
+        if self.Totalvehiculos==[]:
+            self.Totalvehiculos+=[[placa,marca,modelo,año,precio,'disponible']]
+        else:
+            if busca_existencia(placa,self.Totalvehiculos)==False:
+                self.Totalvehiculos+=[[placa,marca,modelo,año,precio,'disponible']]
+            else:
+                print('El numero de placa ya se encuentra registrado')
+
+    def eliminar_vehiculo(self,placa):
+        if busca_existencia(placa,self.Totalvehiculos)==True:
+            self.Totalvehiculos= elimina_vehiculo(placa,self.Totalvehiculos)
+        else:
+            print('El numero de placa no se encuentra registrado')
+
+    def ver_disponibles(self):
+        if self.Totalvehiculos!=[]:
+            for x in self.Totalvehiculo:
+                print('Placa:',x[0],'Marca:',x[1],'Modelo:',x[2],'Año:',x[3],'Precio:',x[4],'\n')
+        else:
+            print('No hay vehiculos registrados')
+                
+        
+        
+class persona:
+    def _init_(self):
+        self.persRegistradas=[]
+
+
+    def registro_persona(self):
+        if largo(cedula)==9:
+            if isinstance(nombre,str):
+                if self.persRegistradas==[]:
+                    self.persRegistradas+=[[cedula,nombre]]
+                else:
+                    if busca_existencia(cedula,self.persRegistradas)==False:
+                        self.persRegistradas+=[[cedula,nombre]]
+                    else:
+                        print('La cedula ya se encuentra registrada')                    
+            else:
+                print('Debe colocar el nombre en datos str')
+        else:
+            print('La cedula debe de contener 9 digitos')
+
+
+
+
+def busca_existencia(buscar,matriz):
+    res=False
+    for x in matriz:
+        if x[0]==buscar:
+            res=True
+            break
+    return res
+
+def elimina_vehiculo(placa,matriz):
+    res=[]
+    v=0
+    for x in matriz:
+        if x[0]==placa and x[5]=='disponible':
+            continue
+        elif x[0]==placa and x[5]=='activo':
+            v=1
+            break
+        else:
+            res+=[x]
+    if v==0:
+        return res
+    else:
+        print('El auto se encuentra activo')
+        
+
+def largo(n):
+    res=0
+    while n!=0:
+        res+=1
+        n=n//10
+    return res
+
